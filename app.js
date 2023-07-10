@@ -40,5 +40,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, host, function () {
-    console.log(`Server listens http://${host}:${port}`);
+    console.log(`Робит http://${host}:${port}`);
 });
