@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express()
 
 const host = '127.0.0.1';
 const port = 5000;
@@ -17,6 +18,8 @@ let welcomeF = function () {
 };
 
 app.set('view engine', 'hbs');
+
+app.use('/static', express.static('./public'));
 
  app.get('/', function (request, response) {
     response.render('index.hbs', {

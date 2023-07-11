@@ -1,5 +1,1 @@
-const os = require('os');
-
-let userName = os.userInfo().username;
-
-module.exports = "Доброе утро " + userName;
+module.exports = "Доброе утро ";
