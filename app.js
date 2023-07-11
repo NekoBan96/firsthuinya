@@ -2,6 +2,7 @@ const app = require('express')();
 
 const host = '127.0.0.1';
 const port = 5000;
+const fs = require('fs');
 
 
 const welcome = require('./welcome');
@@ -15,12 +16,11 @@ let welcomeF = function () {
     else {return welcome.getMorningMessage()};
 };
 
+app.set('view engine', 'hbs');
 
-
-app.get('/home', (req, res) => {
-    res.status(200).type('text/plain');
-    res.send(welcomeF());
-});
+ app.get('/', function (request, response) {
+    response.render('index.hbs');
+    });
 
 app.get('/about', (req, res) => {
     res.status(200).type('text/plain');
