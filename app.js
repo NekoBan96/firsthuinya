@@ -5,27 +5,12 @@ const host = '127.0.0.1';
 const port = 5000;
 const fs = require('fs');
 
-
-const welcome = require('./welcome');
-
-let currentDate = new Date();
-module.exports.date = currentDate;
-let welcomeF = function () {
-    let hour = currentDate.getHours();
-    if (hour > 16) {return welcome.getEveningMessage()}
-    else if (hour > 10) {return welcome.getAfternoonMessage()}
-    else {return welcome.getMorningMessage()};
-};
-
 app.set('view engine', 'hbs');
 
 app.use('/static', express.static('./public'));
 
- app.get('/', function (request, response) {
-    response.render('index.hbs', {
-        Hwelcome: welcomeF()
-    });
-    });
+app.get('/', function (request, response) {
+    response.render('index.hbs')})
 
 app.get('/about', (req, res) => {
     res.status(200).type('text/plain');
