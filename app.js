@@ -19,7 +19,9 @@ let welcomeF = function () {
 app.set('view engine', 'hbs');
 
  app.get('/', function (request, response) {
-    response.render('index.hbs');
+    response.render('index.hbs', {
+        Hwelcome: welcomeF()
+    });
     });
 
 app.get('/about', (req, res) => {
